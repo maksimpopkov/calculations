@@ -71,7 +71,7 @@ namespace Calculations
 
         /// <summary>
         /// Calculate the following sum
-        /// 1!/1 + 2!/(1+1/2) + 3!/(1+1/2+1/3) + ... + n!/ (1+1/2+1/3+...+1/n), where n > 0.
+        /// 1!/1 + 2!/(1+1/2) + 3!/(1+1/2+1/3) + ... + 1*2*...* n/ (1+1/2+1/3+...+1/n), where n > 0.
         /// </summary>
         /// <param name="n">Number of elements.</param>
         /// <returns>Sum of elements.</returns>
