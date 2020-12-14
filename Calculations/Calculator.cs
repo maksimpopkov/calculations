@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Calculations
 {
@@ -11,7 +11,16 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumOne(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            if (n > 0)
+            {
+                for (double i = 1; i < n + 1; i++)
+                {
+                    sum += 1 / i;
+                }
+            }
+
+            return sum;
         }
         
         /// <summary>
@@ -22,7 +31,16 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumTwo(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            double sign = 1;
+
+            for (double i = 1; i <= n; i++)
+            {
+                sum += sign * (1.0 / (i * (i + 1)));
+                sign = -sign;
+            }
+
+            return sum;
         }
         
         /// <summary>
@@ -33,7 +51,14 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumThree(int n)
         {
-            throw new NotImplementedException();
+            int multiplier = 5;
+            double sum = 0;
+            for (int i = 1; i < n + 1; i++)
+            {
+                sum += 1 / Math.Pow(i, multiplier);
+            }
+
+            return sum;
         }
         
         /// <summary>
@@ -44,7 +69,13 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumFour(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            for (double i = 1; i < n + 1; i++)
+            {
+                sum += 1 / Math.Pow((2 * i) + 1, 2);
+            }
+            
+            return sum;
         }
 
         /// <summary>
@@ -55,7 +86,13 @@ namespace Calculations
         /// <returns>Product of elements.</returns>
         public static double GetProductOne(int n)
         {
-            throw new NotImplementedException();
+            double sum = 1;
+            for (double i = 1; i < n + 1; i++)
+            {
+                sum *= 1 + (1 / Math.Pow(i, 2));
+            }
+
+            return sum;
         }
         
         /// <summary>
@@ -66,18 +103,40 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumFive(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            int sign = -1;
+            int denominator = 3;
+
+            for (int i = 1; i < n + 1; i++)
+            {
+                sum += (double)sign / denominator;
+                sign *= -1;
+                denominator += 2;
+            }
+
+            return sum;
         }
 
         /// <summary>
         /// Calculate the following sum
-        /// 1!/1 + 2!/(1+1/2) + 3!/(1+1/2+1/3) + ... + n!/ (1+1/2+1/3+...+1/n), where n > 0.
+        /// 1!/1 + 2!/(1+1/2) + 3!/(1+1/2+1/3) + ... + 1*2*...* n/ (1+1/2+1/3+...+1/n), where n > 0.
         /// </summary>
         /// <param name="n">Number of elements.</param>
         /// <returns>Sum of elements.</returns>
         public static double GetSumSix(int n)
         {
-            throw new NotImplementedException();
+            double totalSum = 0;
+            double harmonicSum = 0;
+            double factorialProduct = 1;
+
+            for (int i = 1; i < n + 1; i++)
+            {
+                harmonicSum += 1.0 / i;
+                factorialProduct *= i;
+                totalSum += factorialProduct / harmonicSum;
+            }
+
+            return totalSum;
         }
 
         /// <summary>
@@ -88,7 +147,13 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumSeven(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            for (int i = 1; i < n + 1; i++)
+            {
+                sum = Math.Sqrt(2 + sum);
+            }
+
+            return sum;
         }
         
         /// <summary>
@@ -99,7 +164,20 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumEight(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0.0;
+            double radians = Math.PI / 180.0;
+            for (int i = 1; i <= n; i++)
+            {
+                double nestedSum = 0.0;
+                for (int j = 1; j <= i; j++)
+                {
+                    nestedSum += Math.Sin(j * radians);
+                }
+
+                sum += 1.0 / nestedSum;
+            }
+
+            return sum;
         }
     }
 }
